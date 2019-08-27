@@ -1,0 +1,25 @@
+{
+	propertyEditors: [
+		{
+			alias: "Fluent.KeyValueCheckList",
+			name: "Key:Value Check List",
+			editor: {
+				view: "~/App_Plugins/KeyValueCheckList/KeyValueCheckList.html"
+			},
+			prevalues: {
+				fields: [
+					{
+						label: "Key:Value Mapping",
+						description: "Enter key:Value for the check list, each on a new line.<br />example: <br />0:Select One<br />1:Green<br />2:Red",
+						key: "names",
+						view: "textarea",
+						validation: [ { type: "Required" } ]
+					}
+				]
+			}
+		}
+	],
+	javascript: [
+		'~/App_Plugins/KeyValueCheckList/KeyValueCheckList.controller.js'
+	]
+}

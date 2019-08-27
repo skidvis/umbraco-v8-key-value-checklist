@@ -1,0 +1,7 @@
+<div ng-controller="KeyValueCheckListController" class="wmd-panel">
+    <!--http://www.undefinednull.com/2014/08/11/a-brief-walk-through-of-the-ng-options-in-angularjs/-->
+    <label ng-repeat="kvPair in keyValueCheckList" style="display:block;">        
+        <input type="checkbox" name="{{kvPair.value}}" id="{{kvPair.value}}" ng-model="kvPair.checked" ng-change="changeSelections()">
+        <label for="{{kvPair.value}}">{{kvPair.value}}</label>
+    </label>
+</div>

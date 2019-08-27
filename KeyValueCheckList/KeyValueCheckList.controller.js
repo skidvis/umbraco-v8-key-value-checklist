@@ -2,7 +2,7 @@ angular.module("umbraco").controller("KeyValueCheckListController", function ($s
 
     let checkForCheck = function (key) {
         for (let i = 0; i < $scope.model.value.length; i++) {
-            if ($scope.model.value[i].key === key) {
+            if ($scope.model.value[i] === key) {
                 return true;
             }
         }
@@ -17,6 +17,13 @@ angular.module("umbraco").controller("KeyValueCheckListController", function ($s
     $scope.keyValueCheckList = keyValueList;
 
     $scope.changeSelections = function () {
-        $scope.model.value = $filter('filter')($scope.keyValueCheckList, { checked: true });
+        let selectedKeys = $scope.keyValueCheckList.map(function (item) {
+            if (item.checked == true) {
+                return item.key;
+            } else {
+                return null;
+            }
+        });                
+        $scope.model.value = selectedKeys.filter(item => item != null);
     }  
 });
